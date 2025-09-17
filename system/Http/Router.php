@@ -23,7 +23,7 @@ class Router
         $action = $this->routes[$method][$uri] ?? null;
 
         if (!$action) {
-            return (new Response())->setStatusCode(404)->setContent("404 Not Found");
+             abort(404, 'Page Not Found');
         }
 
         if (is_array($action)) {

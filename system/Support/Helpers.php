@@ -99,3 +99,30 @@ function url(string $path = '', array $query = []): string
     return $full;
 }
 
+function abort(int $code, string $message = '', string $details = ''): void
+{
+    http_response_code($code);
+
+    $viewFile = __DIR__ . '/../../app/Views/errors/error_page.fame.php';
+
+    if (file_exists($viewFile)) {
+        extract([
+            'code' => $code,
+            'message' => $message,
+            'details' => $details
+        ]);
+        include $viewFile;
+    } else {
+        echo $message ?: "Error $code";
+    }
+
+    exit;
+}
+
+if (!function_exists('storage_path')) {
+    function storage_path(string $path = ''): string
+    {
+        return rtrim(__DIR__ . '/../../storage', '/') . ($path ? '/' . $path : '');
+    }
+}
+
