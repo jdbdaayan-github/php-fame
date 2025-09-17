@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook Admin Dashboard Mockup</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f0f2f5;
+    }
+    /* Top Bar */
+    .topbar {
+        height: 60px;
+        background-color: #4267B2;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        justify-content: space-between;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .topbar h1 {
+        font-size: 20px;
+    }
+    .topbar input {
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: none;
+        width: 250px;
+    }
+    /* Layout */
+    .container {
+        display: flex;
+        height: calc(100vh - 60px);
+    }
+    /* Sidebar */
+    .sidebar {
+        width: 220px;
+        background: white;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+    .sidebar h3 {
+        margin-top: 0;
+        color: #333;
+    }
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+    .sidebar li {
+        padding: 12px 0;
+        cursor: pointer;
+        color: #4267B2;
+        font-weight: bold;
+    }
+    .sidebar li:hover {
+        text-decoration: underline;
+    }
+    /* Main Content */
+    .main-content {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+    }
+    /* Stats Panels */
+    .stats {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    .stat-box {
+        background: white;
+        flex: 1;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    .stat-box h2 {
+        margin: 0;
+        font-size: 28px;
+        color: #4267B2;
+    }
+    .stat-box p {
+        margin: 5px 0 0;
+        color: #555;
+    }
+    /* Tables */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background: #4267B2;
+        color: white;
+    }
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+    /* Section Titles */
+    .section-title {
+        margin: 20px 0 10px;
+        color: #333;
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+    <h1>Facebook Admin Dashboard</h1>
+    <input type="text" placeholder="Search users or content...">
+</div>
+
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h3>Menu</h3>
+        <ul>
+            <li>Overview</li>
+            <li>User Management</li>
+            <li>Content Moderation</li>
+            <li>Reports</li>
+            <li>Insights</li>
+            <li>Settings</li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-box">
+                <h2>1.2M</h2>
+                <p>Active Users</p>
+            </div>
+            <div class="stat-box">
+                <h2>15K</h2>
+                <p>Flagged Posts</p>
+            </div>
+            <div class="stat-box">
+                <h2>320</h2>
+                <p>Pending Reviews</p>
+            </div>
+        </div>
+
+        <!-- Flagged Content Table -->
+        <div class="section-title">Flagged Content</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Post ID</th>
+                    <th>User</th>
+                    <th>Type</th>
+                    <th>Reason</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>12345</td>
+                    <td>John Doe</td>
+                    <td>Post</td>
+                    <td>Hate Speech</td>
+                    <td>Pending</td>
+                </tr>
+                <tr>
+                    <td>12346</td>
+                    <td>Jane Smith</td>
+                    <td>Comment</td>
+                    <td>Spam</td>
+                    <td>Reviewed</td>
+                </tr>
+                <tr>
+                    <td>12347</td>
+                    <td>Bob Lee</td>
+                    <td>Post</td>
+                    <td>Violence</td>
+                    <td>Pending</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- User Management Table -->
+        <div class="section-title">User Management</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1001</td>
+                    <td>Alice Johnson</td>
+                    <td>alice@example.com</td>
+                    <td>User</td>
+                    <td>Ban</td>
+                </tr>
+                <tr>
+                    <td>1002</td>
+                    <td>Mark Lee</td>
+                    <td>mark@example.com</td>
+                    <td>Moderator</td>
+                    <td>Edit</td>
+                </tr>
+                <tr>
+                    <td>1003</td>
+                    <td>Susan Wang</td>
+                    <td>susan@example.com</td>
+                    <td>User</td>
+                    <td>Ban</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/bootstrap/app.php'; // load your framework
+
+use System\Console\CLI\FameCLI;
+
+// Pass all command-line arguments to CLI handler
+$cli = new FameCLI($argv);
+$cli->handle();

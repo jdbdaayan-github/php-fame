@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PHP Fame Framework Documentation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Inter', sans-serif; display: flex; background: #f9fafb; color: #1f2937; }
+    aside {
+        width: 280px; background: #1e3a8a; color: #f9fafb; padding: 20px; height: 100vh; position: fixed; overflow-y: auto;
+    }
+    aside h2 { color: #60a5fa; font-size: 1.4em; margin-bottom: 15px; }
+    aside a { display: block; color: #f9fafb; text-decoration: none; margin: 6px 0; font-size: 0.95em; transition: 0.2s; }
+    aside a:hover { color: #93c5fd; }
+    main { margin-left: 300px; padding: 40px; max-width: 900px; }
+    h1 { font-size: 2em; margin-bottom: 20px; color: #1e3a8a; }
+    h2 { font-size: 1.6em; margin-top: 40px; margin-bottom: 15px; color: #1e40af; border-bottom: 2px solid #60a5fa; padding-bottom: 5px; }
+    h3 { font-size: 1.2em; margin-top: 25px; margin-bottom: 10px; color: #1e40af; }
+    pre { background: #e5e7eb; padding: 15px; border-radius: 8px; overflow-x: auto; font-size: 0.95em; }
+    code { background: #e5e7eb; padding: 2px 6px; border-radius: 4px; }
+    ul { margin-left: 20px; margin-bottom: 15px; }
+    footer { text-align: center; margin-top: 50px; color: #6b7280; font-size: 0.9em; }
+    details { margin-bottom: 15px; }
+    summary { cursor: pointer; font-weight: 600; }
+</style>
+</head>
+<body>
+<aside>
+    <h2>PHP Fame Docs</h2>
+    <a href="#installation">Installation</a>
+    <a href="#structure">Project Structure</a>
+    <a href="#application">Application</a>
+    <a href="#kernel">Kernel</a>
+    <a href="#router">Router</a>
+    <a href="#request-response">Request & Response</a>
+    <a href="#controllers">Controllers</a>
+    <a href="#views">Views</a>
+    <a href="#security">Security</a>
+    <a href="#database">Database</a>
+    <a href="#facades">Facades</a>
+    <a href="#middleware">Middleware</a>
+    <a href="#env">Environment</a>
+    <a href="#helpers">Helpers</a>
+    <a href="#themes">Themes</a>
+    <a href="#fame-templating">Fame Templating Engine</a>
+</aside>
+
+<main>
+<h1>PHP Fame Framework Documentation</h1>
+
+<h2 id="installation">1. Installation</h2>
+<p>Copy the project files to your server. Set <code>public/</code> as the web root. Run <code>composer install</code> if using dependencies.</p>
+
+<h2 id="structure">2. Project Structure</h2>
+<pre>
+project-root/
+├── app/                  # Controllers, Models, Views, Services
+├── bootstrap/            # Core bootstrap
+├── config/               # Config files
+├── public/               # Web root, index.php entry
+├── routes/               # web.php, api.php
+├── storage/              # Logs, cache, sessions
+├── system/               # Core framework: Http, Security, Database, Support
+├── tests/                # Unit & Feature tests
+├── vendor/               # Composer dependencies
+├── .env                  # Environment variables
+├── composer.json         # Composer config
+└── README.md             # Project info
+</pre>
+
+<h2 id="application">3. Application</h2>
+<p>The <code>System\Application</code> class initializes the framework and kernel.</p>
+<pre>
+$app = new System\Application();
+$app->run();
+</pre>
+
+<h2 id="kernel">4. Kernel</h2>
+<p>Handles all requests and dispatches to the router.</p>
+
+<h2 id="router">5. Router</h2>
+<p>Defines application routes.</p>
+<pre>
+Route::get('/', [HomeController::class, 'index']);
+Route::post('/user', [UserController::class, 'store']);
+</pre>
+
+<h2 id="request-response">6. Request & Response</h2>
+<p>Request handles method, URI, input. Response handles content, headers, status.</p>
+
+<h2 id="controllers">7. Controllers</h2>
+<p>Controllers handle business logic and return <code>Response</code> or <code>view()</code>.</p>
+
+<h2 id="views">8. Views</h2>
+<p>Templates are <code>*.fame.php</code> files. Use <code>view('home', ['name' => 'JDBD'])</code>.</p>
+
+<h2 id="security">9. Security</h2>
+<ul>
+<li>Authentication (Auth)</li>
+<li>CSRF Protection</li>
+<li>Password Hashing (bcrypt/argon2)</li>
+<li>Encryption/Decryption</li>
+<li>Token Management (JWT/API)</li>
+<li>Input Validation</li>
+<li>Rate Limiting</li>
+</ul>
+
+<h2 id="database">10. Database</h2>
+<p>Use <code>System\Database\DB</code> and <code>QueryBuilder</code> for safe queries.</p>
+
+<h2 id="facades">11. Facades</h2>
+<p>Static access to core components, e.g., <code>Route::get(...)</code>.</p>
+
+<h2 id="middleware">12. Middleware</h2>
+<p>Use middleware for request filtering: auth, CORS, logging, etc.</p>
+
+<h2 id="env">13. Environment</h2>
+<p>Use <code>.env</code> or config classes to load environment variables.</p>
+
+<h2 id="helpers">14. Helpers</h2>
+<p>Common functions: <code>base_path(), view(), config(), redirect()</code></p>
+
+<h2 id="themes">15. Themes</h2>
+<ul>
+<li>Dark Blue professional sidebar</li>
+<li>Light content area for readability</li>
+<li>Customizable base layout for all views</li>
+</ul>
+
+<h2 id="fame-templating">16. Fame Templating Engine</h2>
+<p>Blade-like syntax for <code>*.fame.php</code> templates. Supports layouts, sections, includes, variables, control structures, and CSRF.</p>
+
+<details>
+<summary>Basic Usage</summary>
+<pre>
+&lt;h1&gt;Welcome, {{ name ?? 'Guest' }}!&lt;/h1&gt;
+</pre>
+</details>
+
+<details>
+<summary>Escaped & Raw Output</summary>
+<pre>
+&lt;p&gt;Escaped: {{ content }}&lt;/p&gt;
+&lt;p&gt;Raw HTML: {!! htmlContent !!}&lt;/p&gt;
+</pre>
+</details>
+
+<details>
+<summary>Layouts and Sections</summary>
+<pre>
+&lt;!-- layout.fame.php --&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;@yield('title')&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  @yield('content')
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- home.fame.php --&gt;
+@extends('layout')
+
+@section('title')Home Page@endsection
+
+@section('content')
+  &lt;h2&gt;Hello, {{ name }}!&lt;/h2&gt;
+@endsection
+</pre>
+</details>
+
+<details>
+<summary>Includes</summary>
+<pre>
+@include('partials.header')
+@include('partials.footer')
+</pre>
+</details>
+
+<details>
+<summary>Control Structures</summary>
+<pre>
+@if($users)
+    @foreach($users as $user)
+        &lt;p&gt;{{ $user }}&lt;/p&gt;
+    @endforeach
+@else
+    &lt;p&gt;No users found.&lt;/p&gt;
+@endif
+</pre>
+</details>
+
+<details>
+<summary>CSRF and Method Spoofing</summary>
+<pre>
+&lt;form method="POST" action="/user"&gt;
+    @csrf
+    @method('PUT')
+    &lt;input type="text" name="name" value="{{ name }}"&gt;
+    &lt;button type="submit"&gt;Update&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+</details>
+
+<footer>
+    &copy; <?= date('Y') ?> PHP Fame Framework
+</footer>
+</main>
+</body>
+</html>
